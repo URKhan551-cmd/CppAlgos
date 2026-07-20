@@ -1,0 +1,48 @@
+// TWO's Compliment 
+// 1 step deci to binary 
+// 2nd step prefix set to 0 mean positive integer
+// 2nd step prefix set to 1 mean negative integer
+// 3rd step 1's compliment get for the given num
+// 1's compliment mean reverse the order of binary num if it 0 becomes 1 and 1 =0
+// 4th step add 1
+
+
+// for value -10 we have binary = 1010
+// add zero as positve integer
+// 01010 
+// 10101;
+// +1
+// 10110;  this value will store inside the memory.
+// look at the prefix is = 1 mean value is negative -10
+
+
+// now /////////////////////
+// we want to see how binary to decimal compliment works
+
+// 10110
+// 1 step = 1st compliment mean reverse it
+// 10110 = 01001;
+//now 2nd step
+// add + 1 
+// 01010
+// look at the prefix 0 we dont wanna count so the 
+// decimal is 10 possitive 10
+
+
+////////////////////
+
+// if i have 8 decimal what is the TWO'S compliment of this
+// 8= 1000; binary
+// prefix add   01000;
+// reverse 10111;
+// add + 1  11000 = -8
+
+// 1s Compliment
+
+// 11000
+// 00111
+// add + 1
+// 01000 = remove the prefix no need it just zero = 1000 = 8
+
+
+
