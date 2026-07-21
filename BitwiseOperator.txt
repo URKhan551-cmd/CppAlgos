@@ -1,0 +1,85 @@
+bitwise And &  ::   0 & 0 = 0
+                    0 & 1 = 0
+                    1 & 0 = 0
+                    1 & 1 = 1
+      if a = 4 b = 8 
+      now convert into binary = 4 =  100  now we can add 0 in the front 0100
+                                8 = 1000                                1000
+                                __________                              ______
+                                     0000 
+
+
+bitwise | :: or::   0 | 0= 0
+                    0 | 1 = 1
+                    1 | 0 = 1
+                    1 | 1 = 1
+
+                    example 4 and 8 will become 
+                    100 add zero at prefix   0100
+                   1000                      1000
+                                            __________
+                                              1100  = 12 of decimal
+
+
+
+Bitwise ^  XOR operator:  same bit =0
+                          different bit = 1
+
+                          0 ^ 0 = 0
+                          0 ^ 1 = 1
+                          1 ^ 0 = 1
+                          1 ^ 1 = 0
+
+
+                          if i have a =4 b=8 
+                           100  add 0 prefix     0100
+                          1000                   1000
+                                                __________
+                                                 1100   is the decimal of 12
+
+
+Bitwise <<  : left shift operator 
+
+      it mean i have decimal number 4 which has binary = 100
+      now when we use left sfift operator then 100 shift one place in bit according to left 
+     4 << 1   mean 1 place towards left ifi use 4 << 2  take these two places toward left.
+
+      _1 _0 _0 _ 0 last zero compute by our system   which is equal to 8 of decimal 
+
+  example 10 << 2 =  no find  binary which is 10 = 1010
+
+       take two places towards left   1010 00 the last two added inside on a memory.
+       this will become 101000 = in decimal 40
+
+
+Bitwise >> right shift : 
+         take our bit in place to right;
+         example 10 >> 1  =>   1010 will become  01010 the last 0 has been remove by memory 
+                                           we have 00000 in left direction but in right there is no space left to keep out bit so remove
+
+                                10 = 1010 = after shift =>> 0101   the last zero become over out of memory 
+                                now 0101 is in decimal 1
+
+
+////////////
+
+MATHEMATICAL EVALUATION OF LEFT AND RIGHT SHIFT OPERTAORS.
+
+leftSHIFT Operator inside the memory has been doing something like this 
+    a << B   here a* 2^B
+
+    a=8 << b = 1   now 8 * 2^1 = 16;
+
+RightShift operator ::
+a >> b  =   a/2^b  a by 2 power b =  8=1000   now b=2  this will take two last bit into remove ;
+                                                       left with 0010 the two prefix zero has been added by system.
+
+        this will give us decimal = 2
+
+
+        a=8 b=1           |   a=8 b=2
+        8/2^1  = 8/2 = 4  |   8/2^2  =  8/4 = 2;
+
+
+                                 
+
