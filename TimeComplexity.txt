@@ -166,7 +166,14 @@ RECURRSION TIME COMPLEXITY:
 
 2 WAYS to find recurrsion tc.
 
-1st is Recurrsion Relation   mathematicaly 
+1st is Recurrsion Relation   mathematicaly  
+RECURRENCE : each call does constant work and each call.
+T(n) = T(n-1) + O(1)
+
+t(n) = t(n-1) + 1
+t(n) = t(n-2) + 1 + 1
+t(n) = t(n-3) + 1 + 1 + 1
+t(0) + n   = O(n) time complexity 
 
 2nd    how many times the function calls * how many operation call performs inside of it.
       if n =4   there will be 5 calls : 
@@ -181,6 +188,75 @@ return 1;
 };
 return n * factorial(n-1);
 }
+
+
+// Method to find complexity of recurrsion prob
+DRAW A RECURRSION TREE.
+
+int fib(int n){
+    if(n <= 1)
+        return n;
+
+    return fib(n-1) + fib(n-2);
+}
+
+               fib(5)
+             /        \
+        fib(4)       fib(3)
+       /     \       /    \
+   fib(3) fib(2) fib(2) fib(1)
+
+here you can see there are many double calls. fib(3)  and fib(2)
+
+The number of calls roughly doubles each level.
+
+O(2^n);
+
+
+/////////////////////////
+STANDARD INTERVIEW METHOD::
+This is the standard interview method.
+
+int binarySearch(...)
+{
+    ...
+    return binarySearch(...);
+}
+
+Each call searches only half the array.    n/2 half of the arr at each call
+
+RECURRENCE  T(n) = T(n/2) + 1
+for   t(n)  =  T(n/2) + 1;
+             =  T(n/4) + 2;
+              = T(n/8) + 3;
+              = T(n/16) + 4;
+
+when does it stop  (  n/2^k = 1  );  ==>>  2^k = n
+
+k =log2 n
+O(log n);  TC
+///////////////////////////////////////////////
+
+overview :  if at recursion call the main function has been call over and over but with a value has been decreasing by -1 
+it mean every call has been done with just 1 difference  here the TC will be O(n);
+
+
+if a call has been happen with half of the value to first call.
+like at each call the value of function call has beeen divide by 2. then it will be TC =O(log n)
+
+
+outside of the recurrsion something happen is consider as contant TC  O(1);
+
+1 how many recurse call happen 
+2 how much the input got decrease
+3 outside of recurse call what ever you assigned value will be constant
+//////////////////////////////////
+
+Master level of TC for HEAVY ALGORITHMS.
+
+
+
+
 
 
 
