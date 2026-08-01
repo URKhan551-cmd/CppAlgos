@@ -1,0 +1,54 @@
+TIME COMPLEXITY :: not an actual time taken by whole progrm but amount of time taken as function of input size (n);
+
+Common time complexities.
+
+O(1) : conatant :: 
+                  like  i have a function which calculate the sum of 1 to n
+                  function int n;
+                   cin>> n;
+                   int ans = n * (n+1)/2;
+                                         here the time complexity is O(1) constant.
+
+
+or  if we found arr[0] position element bynhelp of funcion we can directly access them in one operation so its constant.
+and i have sorted arr ascending order it mrean smaller value are at the start and bigger values are at the end.
+so we can accces bigger value of that particular arr in one operation O(1)= constant.
+
+if there is no loop & if considyion Number of operation count the complexity.
+
+
+BIG OF N  O(n):: 
+               int fact = 1;
+               for(int i=0; i< n; i++){   here the loop run n times where it perform conatant operation per run  
+              fact *= i;                  so the O(n * k) where we ignore k so O(n);
+               }
+
+Nth Fibonacci-DP
+      for(int i= 2; i<n; i++){
+       dp[i] = dp[i-1] + dp[i-2]    here also the same n time loop run operation takes contant time 
+      }                             O(n * k) = k ignore  O(n);
+
+
+kadans ALgorithm ::
+                   intt currSum = 0,  ans= INT_MIN;
+              for(int i=0; i<n; i++){
+               currSum += arr[i];
+               ans = max(currSum, ans);
+              currSum = currSum < 0 ? 0 : currSum;     n times loop run and perform k time operation;
+              }                                        so the overall time O(n);
+
+
+O(n2)  & O(n3)::
+
+      BUBBLE SORT: if i have two nested loop first loop run n time and same as like for each element of the first loop 
+                     how many times the second inner loop runs so n times 
+                    first loop run   =  3 times * K operation perform 
+                   second loop run =  2 times * k operation perfomr 
+                    if condition run  = 1 * k operation 
+ 
+                      get the total value of all the n (n-1)k + (n-2)k + (n-3)k ...... 2k * k;
+                     k common  k [(n-1) + (n-2) + (n-3) ...];
+                    O(n2); for bubbble sort
+
+
+INsertion SOrt:: 
