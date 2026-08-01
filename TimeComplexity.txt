@@ -108,3 +108,79 @@ also in recurrsion  n queens / knights tour / string All possible permuattion.
                                                     6 = 3! factorial    = n! factorial.
 n! = nx (n-1) x (n-2) x (n-3) ...
 
+
+
+EXAMPLE:: 
+    PRIME NUMBER:
+        for(int i=2; i*i<=n; i++){       // here the loop runs for i=2  i^2 <= n
+           if(n % i ==0){               //  i2= n   ==>>  i=root of n  
+             cout<< "NON Prime"<<endl;  //  i=2  to i root n   or 0 to root n
+             break;                      // O(root n) > O(n)
+           }
+        };
+
+
+//////////////////////
+
+
+which one is better TC    O(root n)  or O(n) 
+
+O(n)       = 100 operations
+O(√n)      = 10 operations.
+
+
+which one is better TC    O(root n) or O(log n)
+
+O(n) vs O(logn)
+
+ Answer: O(logn) is better.
+
+n = 1,000,000             Square root:   √1,000,000 = 1000
+
+Log base 2:            log₂(1,000,000) ≈ 20
+
+Compare:
+
+O(√n)   = 1000 operations
+O(log n)=   20 operations
+
+
+
+
+SELECTION SORT:: O(n2)
+for(int i=0; i<n-1; i++){        // first loop   n times run 
+ int minIndex = i;
+for(int j = i+1; j<n; j++){     // second loop   n  j=1 to n      n time 
+if(ar[j] < arr[minIndex]){                          j=2 to n      n-1 time
+minIndex = j;                                       j=3 to n      n-2 time
+}
+}
+swap(arr[i], arr[minIndex])
+}
+
+the inner loop runs total   n*(n + 1)/2   times
+
+///////////////////////////////////
+
+RECURRSION TIME COMPLEXITY:
+
+2 WAYS to find recurrsion tc.
+
+1st is Recurrsion Relation   mathematicaly 
+
+2nd    how many times the function calls * how many operation call performs inside of it.
+      if n =4   there will be 5 calls : 
+   for n value we call n+1 calss;
+
+n is number of call *  K      O(n)
+
+EXAMPLE:
+for this problem  int factorial(int n){
+if(n == 0){
+return 1;
+};
+return n * factorial(n-1);
+}
+
+
+
