@@ -51,4 +51,60 @@ O(n2)  & O(n3)::
                     O(n2); for bubbble sort
 
 
-INsertion SOrt:: 
+O(n3)::  where we see 3 nested loop 
+         with k number of operation has been going on inside of it.
+      first loop n time 
+       second loop n time 
+        third loop n times run.     over all time complexity will be O(n3);
+
+
+
+O(log n): best OPTIMIZED 
+log of n is a small value it lies after O(1) becuse its faster as comapre to O(n) but slower than contant time Complexity
+
+           2^power here the power is LOG
+BINARY SEARCH AND binary search tress (BST);
+
+ints=0, end=n-1;
+while (s<end){
+int mid= s + (end - s/2);
+if(arr[mid] < target){
+s = mid + 1;
+
+} else if(arr[mid] > target) {
+  e = mid - 1;
+}else {
+return mid;     // ans 
+}
+};
+
+        n at each step gonna divide by 2 until reach to 1
+    n/2 =>> n/4   ==>> n/8 ..... n = 1
+  n/2^0  ==>> n/2^1 ==>> n/2^2   ==>> n/2^3 ...... n/2^x = 1    here we wanna find x value.
+
+
+
+//////////////////////////////////////////////////////////////
+
+O(n log n):   sorting  / merge sort / quick sort / greedy algo.
+
+O(n log n)  better than O(n2)
+O(n log n)  worse then O(n);
+
+
+//////////////////////////////////////////////////
+
+O(2^n) EXponential TC
+the worst complexity comes in recurrsion.
+      here it mean 2^n    = 2x2x2x2x2x2x2x2
+
+///////////////////////////////
+O(n!)  factorial complexity
+also in recurrsion  n queens / knights tour / string All possible permuattion.
+
+                                                       string like "ABC"
+                                                     how many possible permuattion of this string.
+                                                      abc, acb, bac,bca, cab, cba, total 6;
+                                                    6 = 3! factorial    = n! factorial.
+n! = nx (n-1) x (n-2) x (n-3) ...
+
