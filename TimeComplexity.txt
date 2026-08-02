@@ -307,12 +307,37 @@ EXAMPLE ::
 
 what is the Big O of that function 
 
-int func(n):
-   for i in range(1, n+1):
-     j=i
+int func(n):                   # N=8
+   for i in range(1, n+1):   1 to 8     
+     j=i                    
    while j<= n:
-     j += 1
+     j += i
 
+here j=1  secondLoop j+i=2    
+          secondloop j+i=3
+          secondloop j+i=4
+          secondloop j+i=5
+          secondloop j+i=6
+          secondloop j+i=7
+          secondloop j+i=8
+i=2    j=2     secondLoop j+i= 4
+               secondLoop j+2=6
+               secondLoop j+1=8
+               
+i=3   j=3     secondLoop  j+i = 6
+              secondLoop  j+i = 
+
+so the outer LOP execute N time 
+
+secondLOop first run  8 time  or  n time
+secondLOop second run  4 time  or  n/2 time
+secondLOop third run  4 time  or  n/3 time
+secondLOop fourtth run  4 time  or  n/4 time
+
+N + N/2 + N/3 + N/4 + N/5....N/N
+Nx(1/2 + 1/3 + 1/4 + 1/5 + 1/6....1/N)   log N   
+
+n x logN   O(n log n);
 
 ///////////////////////////////////////////////
 
@@ -428,3 +453,61 @@ seventh operation i=7    49<=100
 eight operation i=8      64<=100
 ninth operation i=9      81<=100
 tenth operation i=10     100<=100;
+
+
+
+/////////////////////////////////////
+
+Two Independent Loops → O(n)
+
+for(int i = 0; i < n; i++)
+    cout << i;
+
+for(int j = 0; j < n; j++)
+    cout << j;
+
+Many beginners say:
+
+O(n²)
+
+Wrong.   its O(n)
+
+
+
+
+
+///////////////////////////////
+
+for i in range(1, n+1):    n=8   the outer loop 8 time mean N time run  O(n)
+
+    j = 1
+
+    while j <= n:       n=8 
+        j *= 2
+
+
+i=1   j=1     2x1=2   2x2=4   4x2=8   8x2=16 stop 
+i=2   j=1     1x2=2   2x2=4   4x2=8   8x2=16 stop
+i=3   j=1     1x2=2   2x2=4   4x2=8   8x2=16 stop
+i=4   j=1     1x2=2   2x2=4   4x2=8   8x2=16 stop
+i=5   j=1     1x2=2   2x2=4   4x2=8   8x2=16 stop
+i=6   j=1     1x2=2   2x2=4   4x2=8   8x2=16 stop
+i=7   j=1     1x2=2   2x2=4   4x2=8   8x2=16 stop
+i=8   j=1     1x2=2   2x2=4   4x2=8   8x2=16 stop
+
+The loop stops when:    j>n
+We know:   j=2^k
+where k is the number of iterations.     So:  2^k > n
+
+Now we need to find k.
+
+Take log base 2 on both sides:
+log2(2^k) > log2(n)
+The logarithm cancels the exponent:     k > log2(n) 
+Therefore:   k=log2(n)
+
+Inner loop log(n);
+
+Combine both loop n x log(n);
+
+O(n log n);
