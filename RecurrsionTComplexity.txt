@@ -1,0 +1,87 @@
+TWO WAYS T FIND THE TC OF RECURSIVE CODE OR FUNCTION:
+
+1: RECURRENCE RELATION  A METHEMATICAL APPROACH 
+2: TOTAL NUMBER OF CALLS  x  WORK IN EACH CALL.
+
+
+example::  int factorial(n){
+   if(n==0){
+   return 1;
+   }
+
+  return n * factotail(n-1);
+};
+
+recursive tree ::  if we get n=4  >>   f(4)   -> f(3)  ->  f(2) -> f(1)  -> f(0)
+                                    24 return   <-   6*4  <-  2*3return    <-   1*2return    <-  1*1 return    <- 1 return
+       here total number of calls are 5  if i have n into function i need to call n+1. or n times
+
+
+         in each function call the work has been done by func is Constant    O(n * K);
+O(n);
+
+
+/////////
+
+
+SPACE COMPLEXITY:
+recursion call stack has been count on memory like a box holding each call of recursive functoin.
+
+stack = f(4) + f(3) + f(2) + f(1) + f(0)   it occupy space in memory;
+
+AUXILARY SPCAE = variable we create to hold values.
++
+CALL STACK 
+
+
+formula:  depth of recusion tree  x   memory in each call    
+OR
+height of call stack  x  memoy in each call.
+
+height like => 4-> 3-> 2-> 1-> 0;
+memory in each call is constant 
+
+so over all SpaceComplexity  = n is heigt x K constnat
+
+n x K =    O(n) 
+
+
+
+RECURSIVE FIBONACCI:: TIME &  SPACE Complexity?
+int fib(int n){
+  if(n==0 || n==1){ return n; };
+
+return fib(n-1) + fib(n-2);
+};
+
+f(n) =  f(n-1) + f(n-2);
+let us say we get n=4
+
+f(4) = f(4-1) + f(4-2)   
+        f(3) = f(3-1)+f(3-2);      f(2)=f(2-1)+ f(2-2);
+          f(2)= f(2-1)+f(2-2);  f(1)=f(1-1)+f(1-2);stop        f(1)=f(1-1)+f(1-2)stop  f(0)=f(0-1)+f(0-2)stop
+              f(1)=f(1-1)+f(1-2)stop;
+
+here we can see a tree like structure  every functio has been calling twice to its function value;
+every function has been calls twice with different value of n
+
+where the base case hit stop calls.
+f(4) ->       f(3) & ->                 f(2)
+             f(2) & ->   f(1)hit             f(1)hit & f(0)hit
+         f(1)hit & f(0)hit
+
+TC = total num of calls  * workin each call
+
+TC = 1+2+4+8  *  total work in each call is Constant K
+total number of calls 2^n-1 . if have n=4   total calls will be 2^4-1 = 2^3 = 8....
+
+TC = 2^n-1 * K   =   remove K & 1 constant
+TC = 2^n =  O(2^n);
+
+
+SPACE COMPLEXITY =  DEPTH OR HEIGT OF RECURSIVE CALLS  X  MEMORY
+n x total work at each IS CONSTANT K
+
+n x k = O(n)
+
+SPACE COMPLEXITY = O(n);
