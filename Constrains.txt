@@ -1,0 +1,21 @@
+you have seen a lot in coding platforms where the 
+in 1 second there is 10^8 operations happens approximately.
+
+here as an example if i have n = 10^5
+if we se O(n^2)  = we put values inside of it 
+O(10^5x2) = 10^10 which is greater than 10^8 it will not accepted cause TLE
+TIME LIMIT EXCEED
+
+i have to optimize the code 
+O(n log n);
+check with O(n)  algo 
+
+constrains help us to use the kind of algorithm with its specific time complexity.
+
+n > 10^8         O(log n)  O(1)
+n <= 10^8        O(n)
+n <= 10^6        O(n log n)  sorting
+n <= 10^4        O(n2)
+n <= 500         O(n3)
+n <= 25          O(2^4)   we have to thing on first sparck there is recurrsion might happen
+n <=12           O(n!)
