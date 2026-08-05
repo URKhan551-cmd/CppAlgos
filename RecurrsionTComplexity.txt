@@ -85,3 +85,102 @@ n x total work at each IS CONSTANT K
 n x k = O(n)
 
 SPACE COMPLEXITY = O(n);
+//////////////////////////////////////////////////////////
+HOW DO I FIND THE RECURRENCE RELATION TO TC;
+
+So if T(n) is the running time,
+
+the current call spends:
+
+T(n-1) solving the first problem
+T(n-2) solving the second problem
+Θ(1) for the current work
+
+
+T(n) = T(n-1) + T(n-2) + O(1) the last one is for current work which is constant
+
+fib(5)
+
+                 fib(5)
+               /        \
+          fib(4)        fib(3)
+         /     \       /     \
+    fib(3) fib(2) fib(2) fib(1)
+     /  \    / \    / \
+fib(2)fib(1)...
+
+Notice something?
+
+fib(3) is computed multiple times.
+
+fib(2) is computed even more times.
+
+The amount of work grows exponentially.
+
+2^n   called exponential growth.
+
+
+///////////////////////////
+
+MERGE SORT ALGORITHM TIME COMPLEXITY.
+
+void mergeSort(int arr[], int st, int end){
+       if(st >= end){
+return;
+       };
+
+int mid = st + (end - st)/2;
+
+mergeSort(arr, st, mid);     here call
+mergeSort(arr, mid+1, end);   here call
+
+merge(arr, st, mid, end);    merge is a funtion whichis outside of mergeSort but we have been calling it inside of mergeSOrt.
+
+   }
+
+
+TC = total call *  workdone in each call  --->> merge functiona
+Tc = total call *  workdone in each call -->> mergeSort recurse function 
+
+then COMBINE both TC of those Function.
+
+merge function  normal function here 4 loop has been going there.
+
+merge function has been doing to merge two array loop has been performing ths which give us 3loop O(n);
+and last loop it self O(n);
+
+MERGE has total TC = O(n + n) = O(2n)   
+we ignore the constant = =  O(n);
+
+
+now MERGE SORT:  do the same as half the value in each call
+i have an arr size = 4
+
+first call 4   into  2  &  2
+second 2 call  1  &  1    &  2nd call   - 2 & 2
+
+then Backtrack again 1+1   2+2  
+
+each call f(4) ->> f(n/2) & f(n/2)  
+             f(n/4) & f(n/4)     f(n/4) & f(n/4)
+
+it means  each call make n ->  n/2 ->  n/4   n/8  .... 1
+OR  we can say    n/2^0  ->>  n/2^1  ->> n/2^2  -->> n/2^3 .... n/2^k
+
+if i have x level   then n/2^x      n/2^x = 1   ->>    n=2^x      -->>  logn = x
+
+levels = x = logn   
+
+TC = total calls * work done
+
+merge FUNCTon And Merge SOrt give us
+
+O(n) * O(log n) =  O(n log n);
+
+OUR FINAL ANSWER   O( n log n );
+
+
+
+SPACE COMPLEXITY = each level n space occupy   then release give it to the second stack function holds n memory.
+
+O(n);
