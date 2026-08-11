@@ -40,3 +40,46 @@ return maxWater; // as answer
 // 10^10 is greater than 10^8   which is out website submission time if greater than this value cause TLE.
 
 // this solution cause TLE
+
+
+// *******************
+// here we can use O(n) or O(log n);
+
+// so now we will solve this problem with TWO POINTER APPROACH.
+
+// OPTIMAL APPROACH = TWO POINTER       
+// where we dal with two values at a time like in REVERSE ARR and PALINDROME CHECK we need two pointer approach.
+// here we will also select two Walls or lines  of the container then differentiate them. with TWO POINTER.
+
+container = width x height;
+width = right wall - left wall;     height = min(height[left wall] , height[right wall])
+
+   right wall = height last index
+   left wall = height first index
+
+// pointer approach give insights about two points where one small height control capacity of containing water so 
+// small wall should bee ++ index wise.
+O(n) timeComplexity.
+
+class Solution {
+public: 
+ int pointerContainer(vector<int>& height){
+    int maxWater = 0;  // ans
+
+    int leftPoint = 0, rightPoint = height.size() -1;
+    
+    while(leftPoint < rightPoint){
+       int width = rightPoint - leftPoint;
+       int height = min(height[leftPoint], height[rightPoint]);
+       int currentWater = width * height;
+       maxWater = max(maxWater, currentWater);
+
+       height[leftPointer] < height[rightPointer] ? leftPointer++ : rightPointer--;  // ternary statement : say if height of leftPointer is 
+    }                                                                               // small as compared to rightPointer then increment 
+                                                                                    // leftPointer. else rightPointer ko decrement karo.
+    return maxWater;
+ }
+   
+}
+
+// TC = O(n)
