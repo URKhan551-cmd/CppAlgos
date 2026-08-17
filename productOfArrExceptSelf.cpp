@@ -35,11 +35,70 @@ for(int i=0; i<n; i++){
 };
 
 
-vector<int> ans(nums.size(), 0);
-int temp = 0;
-for(int i =0; i<nums.size();i++){
-  if(i != temp){
-    ans[i] *= nums[i];
-  };
-  temp++;
+
+// Optimal approach O(n)
+// we dont wanna count the present index position element
+// but if we look at the PREFIX (the element which comes before the index).
+// and SUFFIX (the Elements comes after the present index);
+// we will get PREFIX  indexx  SUFFIX.
+// multiply PREFIX and SUFFIX.
+
+vector<int> productExceptSelf(vector<int>& nums){
+  int n = nums.size();
+  vector<int> ans(n, 1);
+  vector<int> prefix(n, 1); // initialized by 1
+  vector<int> suffix(n, 1);
+  
+// to calculate preficx product we need each element before from index to multiply.
+// prefix   O(n)
+for(int i=1; i<n; i++){
+   prefix[i] = prefix[i-1] * nums[i-1];  // here prefix[1-1]= 0  & nums[2-1] = 1; on the prefix[0, 1,]  
+}            //  i=2   prefix[2-1]=1 & nums[3-1]=2  2*1= 2   prefix[0,1,2];
+             // i=3    prefix[3-1]=2  & nums[4 -1]=3  2*3 = 6   prefix[0,1,2,6];
+
+
+// Suffix  O(n)
+for(int i=n-2; i>=0; i--){  // reverse loop  oon sufix from backward direction   in suffix last index initialize by 1 
+   suffix[i] = suffix[i+1] * nums[i+1]; // if i=2  suffix[2] = suffix[2+1]=suffix[3] * nums[2+1]=nums[3];
+                
+  // here it mean last element of suffix and last elemnet of nums =4; multiply them. suffix[., 12, 4, 1];
+
 }
+
+// ans loop   O(n)
+  for(int i=0; i<n; i++){
+    ans[i] = prefix[i] * suffix[i];
+    
+  }
+
+  return ans;
+};
+
+// O(n)   overall TimeComplexity of this approach but here the  spaceCOmplexity is O(n) => we need O(1) spaceComplexity.
+
+
+// Optimized APPROACH ACCORDING TO SPACE COMPLEXITY
+
+vector<intr> ans(n, 1); // ans is initialized with 1 at index 0
+
+for(int i=1; i<n; i++){
+  ans[i] = ans[i-1] * nums[i-1];   // ans[i-1] is 1  & nums[i-1] =1 at index =0;   
+}                                 // ans[2-1] is 1  & nums[2-1] = 2  2*1 = 2     2ndloop
+                                // ans[3-1] is 2  & nums[3-1] =3    3*2 = 6;   3rdloop
+
+int suffix = 1;
+for(int i=n-2; i>=0; i--){
+  sufix *= nums[i+1];
+  ans[i] *= suffix;
+};
+
+return ans;
+
+
+// WE REMOVED TWO VECTORS ARR SO SPACE IS OPTIMIZED.
+
+O(1)SC   O(n)TC
+
+
+
+
