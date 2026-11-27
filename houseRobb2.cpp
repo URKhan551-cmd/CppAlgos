@@ -49,7 +49,7 @@ int rob(vector<int>& nums) {
 
 
 
-
+// Tabulations 
 
 class Solution {
 public:
@@ -77,3 +77,19 @@ public:
     }
 
     
+int rob(vector<int>& nums) {
+        int n = nums.size();
+
+        if (n == 1)
+            return nums[0];
+
+        // Exclude last house
+        int case1 = solve(0, n - 2, nums);
+
+        // Exclude first house
+        int case2 = solve(1, n - 1, nums);
+
+        return max(case1, case2);
+    }
+};
+
