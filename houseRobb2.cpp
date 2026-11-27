@@ -44,3 +44,36 @@ int rob(vector<int>& nums) {
         return max(case1, case2);
     }
 };
+
+
+
+
+
+
+
+class Solution {
+public:
+    int solve(int start, int end, vector<int>& nums) {
+
+        int n = nums.size();
+        vector<int> dp(n, 0);
+
+        // Base case
+        dp[start] = nums[start];
+
+        for (int i = start + 1; i <= end; i++) {
+
+            int pick = nums[i];
+
+            if (i - 2 >= start)
+                pick += dp[i - 2];
+
+            int notPick = dp[i - 1];
+
+            dp[i] = max(pick, notPick);
+        }
+
+        return dp[end];
+    }
+
+    
