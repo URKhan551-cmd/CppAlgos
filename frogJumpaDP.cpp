@@ -23,3 +23,19 @@ int main(){
   
   return 0;
 }
+
+
+
+int prev1 = 0;
+int prev2 = abs(height[1] - height[0]);
+
+int result = prev2;
+
+jump1 = prev2 + abs(heights);
+jump2 = prev1 + abs(heights);
+result = min(jump1, jump2);
+
+prev1 = prev2;
+prev2 = result;
+
+return result;
